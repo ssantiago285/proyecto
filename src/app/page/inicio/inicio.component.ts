@@ -15,7 +15,7 @@ export class InicioComponent {
   abrirModal() {
     Swal.fire({
       icon: 'warning',
-      title: 'Oops...',
+      title: 'Oops.',
       text: 'Something went wrong!',
       footer: '<a href="#">Why do I have this issue?</a>',
     });
