@@ -1,29 +1,31 @@
-<h4 class="text-center">{{ titulo }}</h4>
+<h4 class="text-center text-gray-500 dark:text-gray-400">{{ titulo }}</h4>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      @for (columna of columnas; track $index) {
-      <ng-container>
-        <th>{{ formatearNombreDeColumnas(columna) }}</th>
-      </ng-container>
+<div class="tabla relative overflow-x-auto mx-auto"style="width: 1300px;">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        @for (columna of columnas; track $index) {
+        <ng-container>
+          <th>{{ formatearNombreDeColumnas(columna) }}</th>
+        </ng-container>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of data; track $index) {
+
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        @for (columna of columnas; track $index) { @if (isFecha(item[columna])) {
+        <ng-container>
+          <td>{{ item[columna] | date : "mediumDate" : "UTC" }}</td>
+        </ng-container>
+        } @else {
+        <ng-container>
+          <td>{{ item[columna] }}</td>
+        </ng-container>
+        }}
+      </tr>
       }
-    </tr>
-  </thead>
-  <tbody>
-    @for (item of data; track $index) {
-
-    <tr>
-      @for (columna of columnas; track $index) { @if (isFecha(item[columna])) {
-      <ng-container>
-        <td>{{ item[columna] | date : "mediumDate" : "UTC" }}</td>
-      </ng-container>
-      } @else {
-      <ng-container>
-        <td>{{ item[columna] }}</td>
-      </ng-container>
-      }}
-    </tr>
-    }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

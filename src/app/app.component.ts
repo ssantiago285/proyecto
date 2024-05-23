@@ -7,6 +7,7 @@ import { NombresComponent } from './page/nombres/nombres.component';
 import { PersonaComponent } from './page/persona/persona.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { HeaderComponent } from './shared/header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   imports: [
+    CommonModule,
     RouterOutlet,
     InicioComponent,
     ArticuloComponent,

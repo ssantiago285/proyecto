@@ -3,3 +3,12 @@
   color: red;
   font-weight: bold;
 }
+.container{
+  display: flex;
+}
+.card{
+  flex-grow: 1;
+}
+.tabla{
+  flex-grow: 1;
+}
