@@ -17,7 +17,7 @@ export class PersonaComponent implements OnInit {
   ngOnInit(): void {
     this.personas = [
       {
-        nombre: 'Juanito Perez',
+        nombre: 'Juanito ',
         fechaNacimiento: new Date('2023-04-05'),
         tipoDocumento: 'Cédula de Ciudadanía',
         numeroDocumento: '2020',

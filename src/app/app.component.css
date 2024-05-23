@@ -4,11 +4,14 @@
   font-weight: bold;
 }
 .container{
-  display: flex;
+  display:flex;
 }
-.card{
-  flex-grow: 1;
-}
+
 .tabla{
   flex-grow: 1;
+}
+footer{
+  margin-bottom: 0;
+  width: 100%;
+
 }
