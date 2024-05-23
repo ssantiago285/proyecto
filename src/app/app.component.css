@@ -4,7 +4,9 @@
   font-weight: bold;
 }
 .container{
-  display:flex;
+  display:100%;
+  padding: 0%;
+  margin-left: 50px;
 }
 
 .tabla{
