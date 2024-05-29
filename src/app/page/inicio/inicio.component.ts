@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoginComponent } from "../../auth/login/login.component";
 
 @Component({
-  selector: 'app-inicio',
-  standalone: true,
-  imports: [RouterLink],
-  templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css',
+    selector: 'app-inicio',
+    standalone: true,
+    templateUrl: './inicio.component.html',
+    styleUrl: './inicio.component.css',
+    imports: [RouterLink, LoginComponent]
 })
 export class InicioComponent {
   constructor(private router: Router) {}
@@ -21,7 +22,7 @@ export class InicioComponent {
     });
   }
 
-  personas = [
+  clientes = [
     {
       nombre: 'Walter',
       apellido: 'Gomez',

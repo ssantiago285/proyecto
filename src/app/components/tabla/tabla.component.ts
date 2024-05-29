@@ -1,7 +1,14 @@
-import { Component, Input, OnInit, input } from '@angular/core';
-import { PersonaInterface } from '../../core/interface/persona.interface';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+
 import { DatePipe } from '@angular/common';
-import { ProductoInterface } from '../../core/interface/producto.interface';
 
 @Component({
   selector: 'app-tabla',
@@ -10,13 +17,20 @@ import { ProductoInterface } from '../../core/interface/producto.interface';
   templateUrl: './tabla.component.html',
   styleUrl: './tabla.component.css',
 })
-export class TablaComponent implements OnInit {
+export class TablaComponent implements OnInit, OnChanges {
   @Input() data: any[] = [];
   @Input() titulo: string = '';
   @Input() columnas: string[] = [];
 
-  ngOnInit(): void {
-    console.log('Personas en el componente hijo', this.data);
+  @Output() onInformacion: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onEliminar: EventEmitter<any> = new EventEmitter<any>();
+
+  ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data'] && changes['data'].currentValue) {
+      this.data = changes['data'].currentValue;
+    }
   }
 
   formatearNombreDeColumnas(columna: string): string {
@@ -26,5 +40,14 @@ export class TablaComponent implements OnInit {
 
   isFecha(value: any): boolean {
     return value instanceof Date;
+  }
+
+  enviarInformacion(data: any) {
+    //Emite el evento con la información de *data*
+    this.onInformacion.emit(data);
+  }
+
+  eliminar(data: any) {
+    this.onEliminar.emit(data);
   }
 }

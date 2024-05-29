@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ArticuloComponent } from './page/articulo/articulo.component';
-import { ImagenesComponent } from './page/imagenes/imagenes.component';
 import { InicioComponent } from './page/inicio/inicio.component';
-import { NombresComponent } from './page/nombres/nombres.component';
-import { PersonaComponent } from './page/persona/persona.component';
+import { clienteComponent } from './page/clientes/cliente.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { CommonModule } from '@angular/common';
@@ -18,16 +15,14 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     RouterOutlet,
     InicioComponent,
-    ArticuloComponent,
-    NombresComponent,
-    PersonaComponent,
-    ImagenesComponent,
+    clienteComponent,
     HeaderComponent,
     FooterComponent,
+
   ],
 })
 export class AppComponent {
   title = 'my-first-project';
 
-  nombre: string = 'Walther Gomez';
+  nombre: string = 'xxx xxx';
 }

@@ -2,8 +2,5 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.fondo {
-  background-color: black;
-  color: red;
-}
+
 
