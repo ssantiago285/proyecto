@@ -1,8 +1,8 @@
-import { clienteservice } from './../../services/clientes/clientes.service';
+import { clienteservice } from '../../../services/clientes/clientes.service';
 import { Component, OnInit, inject } from '@angular/core';
-import { TablaComponent } from '../../components/tabla/tabla.component';
-import { clienteInterface } from '../../core/interface/cliente.interface';
-import { ClienteModel } from '../../core/models/cliente.model';
+import { TablaComponent } from '../../../components/tabla/tabla.component';
+import { clienteInterface } from '../../../core/interface/cliente.interface';
+import { ClienteModel } from '../../../core/models/cliente.model';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 

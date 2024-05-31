@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { LeadModel } from '../../core/models/lead.model';
 
 @Component({
-  selector: 'app-cliente',
+  selector: 'app-lead',
   standalone: true,
   imports: [TablaComponent],
   templateUrl: './leads.component.html',

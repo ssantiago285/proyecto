@@ -1,5 +1,6 @@
 <app-tabla
-  [data]="interaciones"
+  [columnas]="columnas"
+  [data]="interaccion"
   [titulo]="tituloTabla"
-  [columnas]="columnas">
-</app-tabla>
+  (onInformacion)="recibirInformacion($event)"
+></app-tabla>

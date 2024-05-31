@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
 import { PATH } from './core/enum/path.enum';
 import { InicioComponent } from './page/inicio/inicio.component';
-import { clienteComponent } from './page/clientes/cliente.component';
+import { clienteComponent } from './page/administrar-clientes/clientes/cliente.component';
 import { UsuariosComponent } from './page/usuarios/usuarios.component';
 import { leadsComponent } from './page/leads/leads.component';
-import { interaccionesComponent } from './page/interacciones/interacciones.component';
+import { InteraccionesComponent} from './page/interacciones/interacciones.component';
 import { LoginComponent } from './auth/login/login.component';
+import { CrearclientesComponent } from './page/administrar-clientes/crearclientes/crearclientes.cmponent';
 
 export const routes: Routes = [
   {
@@ -40,7 +41,12 @@ export const routes: Routes = [
       {
         path: PATH.INTERACCIONES,
         title: 'Interacciones',
-        component: interaccionesComponent,
+        component: InteraccionesComponent,
+      },
+      {
+        path: PATH.CREAR_CLIENTES,
+        title: 'Crear clientes',
+        component: CrearclientesComponent,
       },
     ],
   },

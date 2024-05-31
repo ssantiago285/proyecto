@@ -6,8 +6,7 @@ import { LoginInterface } from '../../core/interface/login.interface';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { PATH } from '../../core/enum/path.enum';
-import { crearUsuarioInterface } from '../../core/interface/usuario.interface';
-import { UsuarioModel } from '../../core/models/usuario.model';
+
 
 const base_url = environment.base_url;
 @Injectable({

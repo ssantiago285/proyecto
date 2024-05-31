@@ -6,7 +6,7 @@ import { LoginInterface } from '../../core/interface/login.interface';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { PATH } from '../../core/enum/path.enum';
-import { crearUsuarioInterface } from '../../core/interface/usuario.interface';
+import { crearClienteInterface } from '../../core/interface/cliente.interface';
 import { UsuarioModel } from '../../core/models/usuario.model';
 
 const base_url = environment.base_url;
@@ -85,11 +85,11 @@ export class clienteservice {
     return this.httpClient.get(`${base_url}/cliente/${id}`, this.headers);
   }
 
-  // crearUnCliente(usuario: crearclienteInterface) {
-  //   return this.httpClient.post(`${base_url}/cliente`, usuario, this.headers);
-  // }
+  crearUnCliente(usuario: crearClienteInterface) {
+    return this.httpClient.post(`${base_url}/cliente`, usuario, this.headers);
+  }
 
-  actualizarUsuario(usuario: UsuarioModel) {
+  actualizarCliente(usuario: UsuarioModel) {
     return this.httpClient.put(
       `${base_url}/usuario/${usuario._id}`,
       usuario,
@@ -97,7 +97,7 @@ export class clienteservice {
     );
   }
 
-  eliminarUsuario(id: string) {
+  eliminarCliente(id: string) {
     return this.httpClient.delete(`${base_url}/usuario/${id}`, this.headers);
   }
 }
