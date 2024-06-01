@@ -11,7 +11,10 @@ import {
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { clienteservice } from '../../../services/clientes/clientes.service';
-
+import { ClienteModel } from '../../../core/models/cliente.model';
+import { Subscription } from 'rxjs';
+import { PATH } from '../../../core/enum/path.enum';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-crearclientes',
   standalone: true,
@@ -21,9 +24,13 @@ import { clienteservice } from '../../../services/clientes/clientes.service';
 })
 export class CrearclientesComponent implements OnInit {
   clienteForm! : FormGroup;
+  clienteSubscription!: Subscription;
+  clienteSeleccionado!: ClienteModel;
 
   private formBuilder = inject(FormBuilder);
   private ClienteService = inject(clienteservice);
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.clienteForm = this.formBuilder.group({
@@ -37,10 +44,12 @@ export class CrearclientesComponent implements OnInit {
   crearCliente() {
     const data = this.clienteForm.value;
     const nuevoCliente: crearClienteInterface = {
+      _id: data._id,
       nombre: data.nombre,
       numeroCelular: data.numeroCelular,
       email : data.email,
       direccion : data.direccion
+
     };
 
     this.ClienteService
@@ -53,5 +62,29 @@ export class CrearclientesComponent implements OnInit {
 
   resetFormulario() {
     this.clienteForm.reset();
+  }
+  actualizar(cliente: crearClienteInterface) {
+    const data = this.clienteForm.value;
+    const clienteActualizar: crearClienteInterface = {
+      _id: data._id,
+      nombre: data.nombre,
+      numeroCelular: data.numeroCelular,
+      email : data.email,
+      direccion : data.direccion
+    };
+
+    this.ClienteService.actualizarCliente(clienteActualizar).subscribe({
+      next: (res: any) => {
+        Swal.fire(
+          'Cliente Actualizado',
+          `El Cleinte ${this.clienteSeleccionado.nombre} ha sido actualizado con éxito`,
+          'success'
+        );
+        this.router.navigateByUrl(PATH.CLIENTES);
+      },
+      error: (error) => {
+        Swal.fire('Error', `${error.error.msg}`, 'error');
+      },
+    });
   }
 }

@@ -1,11 +1,12 @@
 export interface clienteInterface {
   nombre: string;
   email: string;
-  numeroCelular: number;
+  numeroCelular: number |undefined;
   direccion: string;
 
 }
 export interface crearClienteInterface {
+  _id: string;
   nombre: string;
   email: string;
   numeroCelular: number;

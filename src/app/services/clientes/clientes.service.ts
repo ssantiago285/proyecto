@@ -49,8 +49,7 @@ export class clienteservice {
           this.cliente = new ClienteModel(
             _id,
             nombre,
-            email,
-            createdAt,
+            email.
             numeroCelular,
             direccion
           );
@@ -85,19 +84,19 @@ export class clienteservice {
     return this.httpClient.get(`${base_url}/cliente/${id}`, this.headers);
   }
 
-  crearUnCliente(usuario: crearClienteInterface) {
-    return this.httpClient.post(`${base_url}/cliente`, usuario, this.headers);
+  crearUnCliente(cliente: crearClienteInterface) {
+    return this.httpClient.post(`${base_url}/cliente`, cliente, this.headers);
   }
 
-  actualizarCliente(usuario: UsuarioModel) {
+  actualizarCliente(cliente: ClienteModel) {
     return this.httpClient.put(
-      `${base_url}/usuario/${usuario._id}`,
-      usuario,
+      `${base_url}/cliente/${cliente._id}`,
+      cliente,
       this.headers
     );
   }
 
   eliminarCliente(id: string) {
-    return this.httpClient.delete(`${base_url}/usuario/${id}`, this.headers);
+    return this.httpClient.delete(`${base_url}/cliente/${id}`, this.headers);
   }
 }

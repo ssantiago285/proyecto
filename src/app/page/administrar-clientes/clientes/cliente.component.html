@@ -1,7 +1,12 @@
+<button class="btn btn-primary" style="float: right;" (click)="crearClientes()">
+  Crear cliente
+</button>
+
 <app-tabla
   [data]="clientes"
   [titulo]="tituloTabla"
   [columnas]="columnas"
   (onInformacion)="recibirInformacion($event)"
-
+  (onEliminar)="eliminar($event)"
+  (onActualizar)="actualizar($event)"
 ></app-tabla>

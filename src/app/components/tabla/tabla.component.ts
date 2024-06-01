@@ -24,6 +24,7 @@ export class TablaComponent implements OnInit, OnChanges {
 
   @Output() onInformacion: EventEmitter<any> = new EventEmitter<any>();
   @Output() onEliminar: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onActualizar: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit(): void {}
 
@@ -49,5 +50,8 @@ export class TablaComponent implements OnInit, OnChanges {
 
   eliminar(data: any) {
     this.onEliminar.emit(data);
+  }
+  actualizar(data: any) {
+    this.onActualizar.emit(data);
   }
 }
