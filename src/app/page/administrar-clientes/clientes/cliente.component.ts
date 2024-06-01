@@ -87,6 +87,9 @@ export class clienteComponent implements OnInit {
 crearClientes() {
   this.router.navigateByUrl(`${PATH.CREAR_CLIENTES}`);
 }
+actualizarCliente(data: ClienteModel) {
+  this.router.navigateByUrl(`${PATH.CREAR_CLIENTES}/${data._id}`);
+}
 
 eliminar(data: ClienteModel) {
   this.clienteservice.eliminarCliente(data._id).subscribe({
@@ -97,42 +100,6 @@ eliminar(data: ClienteModel) {
         'warning'
       );
       await this.cargarUsuarios();
-    },
-    error: (error) => {
-      Swal.fire('Error', `${error.error.msg}`, 'error');
-    },
-  });
-}
-actualizar(clienteSeleccionado : any) {
-  this.clienteservice.actualizarCliente(clienteSeleccionado._id).subscribe({
-    next: async (res: any) => {
-      Swal.fire(
-        'Cliente',
-        `El Clinte ${clienteSeleccionado.nombre} ha sido eliminado con éxito`,
-        'warning'
-      );
-      await this.cargarUsuarios();
-    },
-    error: (error) => {
-      Swal.fire('Error', `${error.error.msg}`, 'error');
-    },
-  })
-  const clienteActualizar: ClienteModel = {
-    _id: this.clienteSeleccionado._id,
-    nombre: clienteSeleccionado.nombre,
-    email: clienteSeleccionado.email,
-    numeroCelular: clienteSeleccionado.numeroCelular,
-    direccion: clienteSeleccionado.direccion
-  };
-
-  this.ClienteService.actualizarCliente(clienteActualizar).subscribe({
-    next: (res: any) => {
-      Swal.fire(
-        'Cliente Actualizado',
-        `El Cleinte ${this.clienteSeleccionado.nombre} ha sido actualizado con éxito`,
-        'success'
-      );
-      this.router.navigateByUrl(PATH.CLIENTES);
     },
     error: (error) => {
       Swal.fire('Error', `${error.error.msg}`, 'error');

@@ -63,21 +63,20 @@ export class CrearclientesComponent implements OnInit {
   resetFormulario() {
     this.clienteForm.reset();
   }
-  actualizar(cliente: crearClienteInterface) {
-    const data = this.clienteForm.value;
-    const clienteActualizar: crearClienteInterface = {
-      _id: data._id,
-      nombre: data.nombre,
-      numeroCelular: data.numeroCelular,
-      email : data.email,
-      direccion : data.direccion
+  actualizarCliente(cliente: crearClienteInterface) {
+    const clienteActualizar: ClienteModel = {
+      _id: this.clienteSeleccionado._id,
+      nombre: cliente.nombre,
+      email: cliente.email,
+      numeroCelular: cliente.numeroCelular,
+      direccion: cliente.direccion
     };
 
     this.ClienteService.actualizarCliente(clienteActualizar).subscribe({
       next: (res: any) => {
         Swal.fire(
-          'Cliente Actualizado',
-          `El Cleinte ${this.clienteSeleccionado.nombre} ha sido actualizado con éxito`,
+          'cliente Actualizado',
+          `El usuario ${this.clienteSeleccionado.nombre} ha sido actualizado con éxito`,
           'success'
         );
         this.router.navigateByUrl(PATH.CLIENTES);

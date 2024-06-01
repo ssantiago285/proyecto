@@ -48,6 +48,12 @@ export const routes: Routes = [
         title: 'Crear clientes',
         component: CrearclientesComponent,
       },
+      {
+        path: PATH.ACTUALIZAR_CLIENTES,
+        title: 'Actualizar clientes',
+        component: CrearclientesComponent,
+      },
+
     ],
   },
 ];
