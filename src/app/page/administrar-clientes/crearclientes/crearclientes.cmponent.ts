@@ -18,7 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-crearclientes',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './crearclientes.component.html',
   styleUrl: './crearclientes.component.css',
 })
@@ -32,7 +32,16 @@ export class CrearclientesComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
 
+
   ngOnInit(): void {
+    this.crearFormulario();
+    this.activatedRoute.params.subscribe(({ id }) => {
+      if (id) {
+        this.buscarCliente(id);
+      }
+    });
+  }
+  crearFormulario() {
     this.clienteForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       email: ['', [Validators.required]],
@@ -40,8 +49,43 @@ export class CrearclientesComponent implements OnInit {
       direccion: ['', Validators.required],
     });
   }
+  buscarCliente(nombre: string) {
+    if (nombre !== 'nuevo') {
+      this.clienteSubscription = this.ClienteService.getUnCliente(nombre).subscribe({
+        next: (res: any) => {
+          const {
+            nombre,
+            email,
+            numeroCelular,
+            direccion
+          } = res.cliente;
+
+          this.clienteSeleccionado = res.cliente;
+
+          Swal.fire(
+            'Cliente',
+            `Se encontró el cliente ${res.cliente.nombre}`,
+            'info'
+          );
+          this.clienteForm.patchValue({
+            nombre,
+            email,
+            numeroCelular,
+            direccion
+          });
+        },
+        error: (error: any) => {
+          Swal.fire('Error', 'Error al encontrar el usuario', 'error');
+        },
+      });
+    }
+  }
 
   crearCliente() {
+    if (!this.clienteForm.valid) {
+      Swal.fire('Crear usuario', 'Por favor complete el formulario', 'info');
+      return;
+    }
     const data = this.clienteForm.value;
     const nuevoCliente: crearClienteInterface = {
       _id: data._id,
@@ -52,12 +96,23 @@ export class CrearclientesComponent implements OnInit {
 
     };
 
-    this.ClienteService
-      .crearUnCliente(nuevoCliente)
-      .subscribe((resp: any) => {
-        Swal.fire('Cliente Creado', `${resp.msg}`, 'success');
-        this.resetFormulario();
+    if (this.clienteSeleccionado) {
+      this.actualizarCliente(nuevoCliente);
+    } else {
+      this.ClienteService.crearUnCliente(nuevoCliente).subscribe({
+        next: (res: any) => {
+          Swal.fire(
+            'cliente',
+            `El cliente ${data.nombre} ha sido creado con éxito`,
+            'success'
+          );
+          this.router.navigateByUrl(PATH.CLIENTES);
+        },
+        error: (error) => {
+          Swal.fire('Error', `${error.error.msg}`, 'error');
+        },
       });
+    }
   }
 
   resetFormulario() {

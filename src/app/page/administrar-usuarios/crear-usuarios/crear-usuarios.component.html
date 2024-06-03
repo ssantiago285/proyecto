@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Usuario</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 600px;
+      max-width: 100%;
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 24px;
+      color: #007bff;
+    }
+    .form-container .form-label {
+      font-weight: 500;
+      color: #495057;
+    }
+    .form-container .form-control, .form-container .form-select {
+      height: 45px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ced4da;
+    }
+    .form-container .btn {
+      height: 45px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2 class="text-center">Crear Usuario</h2>
+  <form [formGroup]="usuariosForm" (ngSubmit)="crearUsuario()">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese su nombre" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Correo Electrónico</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="nombre@ejemplo.com" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tipo de Documento</label>
+      <select class="form-select" formControlName="tipoDocumento">
+        <option value="" disabled selected>Seleccione un tipo de documento</option>
+        <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+        <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+        <option value="Pasaporte">Pasaporte</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Número de Documento</label>
+      <input type="text" class="form-control" formControlName="numeroDocumento" placeholder="Ingrese su número de documento" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Número de Celular</label>
+      <input type="number" class="form-control" formControlName="numeroCelular" placeholder="Ingrese su número de Celular" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Rol</label>
+      <select class="form-select" formControlName="rol">
+        <option value="" disabled selected>Seleccione un rol</option>
+        <option value="USER">Usuario</option>
+        <option value="ADMIN">Administrador</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Peso</label>
+      <input type="number" class="form-control" formControlName="peso" placeholder="Ingrese su peso en kg" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" formControlName="fechaNacimiento" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">password</label>
+      <input type="text" class="form-control" formControlName="password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Crear Usuario</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

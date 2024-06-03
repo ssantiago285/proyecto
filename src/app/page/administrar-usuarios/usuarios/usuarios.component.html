@@ -1,0 +1,16 @@
+<hr>
+<button class="btn btn-primary" style="float: right;" (click)="irAcrearUsuarios()">
+    Crear usuarios
+  </button>
+
+
+
+  <app-tabla
+    [data]="usuarios"
+    [titulo]="'Lista de usuarios'"
+    [columnas]="columnas"
+    (onInformacion)="recibirInformacion($event)"
+    (onActualizar)="editarUsuario($event)"
+    (onEliminar)="eliminarUsuario($event)"
+  ></app-tabla>
+

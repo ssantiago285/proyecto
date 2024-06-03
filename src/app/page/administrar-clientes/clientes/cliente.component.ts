@@ -44,7 +44,7 @@ export class clienteComponent implements OnInit {
       this.clientes = resp.clientes;
       this.obtenerColumnas(this.clientes);
 
-      console.log(resp.clientes);
+
     });
   }
   ngOnDestroy(): void {

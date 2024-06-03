@@ -2,11 +2,13 @@ import { Routes } from '@angular/router';
 import { PATH } from './core/enum/path.enum';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { clienteComponent } from './page/administrar-clientes/clientes/cliente.component';
-import { UsuariosComponent } from './page/usuarios/usuarios.component';
+import { UsuariosComponent } from './page/administrar-usuarios/usuarios/usuarios.component';
 import { leadsComponent } from './page/leads/leads.component';
-import { InteraccionesComponent} from './page/interacciones/interacciones.component';
+import { InteraccionesComponent} from './page/administrar-interacciones/interacciones/interacciones.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CrearclientesComponent } from './page/administrar-clientes/crearclientes/crearclientes.cmponent';
+import { CrearUsuariosComponent } from './page/administrar-usuarios/crear-usuarios/crear-usuarios.component';
+import { CrearInteraccionesComponent } from './page/administrar-interacciones/crearinteracciones/crear-interacciones.component';
 
 export const routes: Routes = [
   {
@@ -44,7 +46,7 @@ export const routes: Routes = [
         component: InteraccionesComponent,
       },
       {
-        path: PATH.CREAR_CLIENTES,
+        path: `${PATH.CREAR_CLIENTES}/:id`,
         title: 'Crear clientes',
         component: CrearclientesComponent,
       },
@@ -53,7 +55,21 @@ export const routes: Routes = [
         title: 'Actualizar clientes',
         component: CrearclientesComponent,
       },
-
+      {
+        path: `${PATH.CREAR_USUARIOS}/:id`,
+        title: 'Crear Usuarios',
+        component: CrearUsuariosComponent,
+      },
+      {
+        path: `${PATH.CREAR_INTERACCIONES}`,
+        title: 'Crear Interacciones',
+        component: CrearInteraccionesComponent,
+      },
+      {
+        path: `${PATH.ACTUALIZAR_INTERACCIONES}/:id`,
+        title: 'Actualizar interacciones',
+        component: CrearInteraccionesComponent,
+      },
     ],
   },
 ];

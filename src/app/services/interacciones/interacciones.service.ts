@@ -6,6 +6,7 @@ import { LoginInterface } from '../../core/interface/login.interface';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { PATH } from '../../core/enum/path.enum';
+import { crearInteraccionesInterface } from '../../core/interface/interacciones.interface';
 
 
 const base_url = environment.base_url;
@@ -40,6 +41,7 @@ export class interaccionservice {
             _id,
             cliente,
             llamadas,
+            correos,
             reuniones,
             comentarios,
             createdAt,
@@ -50,6 +52,7 @@ export class interaccionservice {
             createdAt,
             cliente,
             llamadas,
+            correos,
             reuniones,
             comentarios,
           );
@@ -84,9 +87,9 @@ export class interaccionservice {
     return this.httpClient.get(`${base_url}/interaccion/${id}`, this.headers);
   }
 
-  // crearUnCliente(usuario: crearclienteInterface) {
-  //   return this.httpClient.post(`${base_url}/cliente`, usuario, this.headers);
-  // }
+  crearInteraccion(interaccion: crearInteraccionesInterface) {
+    return this.httpClient.post(`${base_url}/interaccion`, interaccion, this.headers);
+  }
 
   actualizarInteraccion(interaccion: InteraccionModel) {
     return this.httpClient.put(

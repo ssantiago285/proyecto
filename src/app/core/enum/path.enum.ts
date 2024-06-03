@@ -9,5 +9,8 @@ export enum PATH {
   LEADS = 'leads',
   USUARIO = 'usuario',
   CREAR_CLIENTES = 'crear-clientes',
-  ACTUALIZAR_CLIENTES='crear-clientes/_id'
+  ACTUALIZAR_CLIENTES='crear-clientes',
+  CREAR_USUARIOS = 'crear-usuarios',
+  CREAR_INTERACCIONES = 'crear-interacciones',
+  ACTUALIZAR_INTERACCIONES='crear-interacciones',
 }

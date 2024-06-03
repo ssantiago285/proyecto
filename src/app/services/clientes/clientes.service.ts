@@ -28,40 +28,39 @@ export class clienteservice {
     return { headers: { 'x-token': this.token } };
   }
 
-  validateToken(): Observable<boolean> {
-    return this.httpClient
-      .get(`${base_url}/login`, {
-        headers: {
-          'x-token': this.token,
-        },
-      })
-      .pipe(
-        map((resp: any) => {
-          const {
-            _id,
-            nombre,
-            email,
-            createdAt,
-            numeroCelular,
-            direccion,
-          } = resp.cliente;
+  // validateToken(): Observable<boolean> {
+  //   return this.httpClient
+  //     .get(`${base_url}/login`, {
+  //       headers: {
+  //         'x-token': this.token,
+  //       },
+  //     })
+  //     .pipe(
+  //       map((resp: any) => {
+  //         const {
+  //           _id,
+  //           nombre,
+  //           email,
+  //           numeroCelular,
+  //           direccion,
+  //         } = resp.cliente;
 
-          this.cliente = new ClienteModel(
-            _id,
-            nombre,
-            email.
-            numeroCelular,
-            direccion
-          );
-          localStorage.setItem('token', resp.token);
-          return true;
-        }),
-        catchError((error) => {
-          console.error(error);
-          return of(false);
-        })
-      );
-  }
+  //         this.cliente = new ClienteModel(
+  //           _id,
+  //           nombre,
+  //           email.
+  //           numeroCelular,
+  //           direccion
+  //         );
+  //         localStorage.setItem('token', resp.token);
+  //         return true;
+  //       }),
+  //       catchError((error) => {
+  //         console.error(error);
+  //         return of(false);
+  //       })
+  //     );
+  // }
 
   login(login: LoginInterface) {
     return this.httpClient.post(`${base_url}/login`, login).pipe(
@@ -94,6 +93,8 @@ export class clienteservice {
       cliente,
       this.headers
     );
+
+
   }
 
   eliminarCliente(id: string) {
