@@ -6,7 +6,13 @@
 }
 
 .form-signin {
-  background-color: rgba(255, 255, 255, 0.5); /* Hace que el formulario sea transparente */
+  background-color: rgba(255, 255, 255, 0); /* Hace que el formulario sea transparente */
   padding: 20px;
   border-radius: 10px;
+}
+.logo{
+  border-radius: 65%;
+}
+.text-body{
+  color:white
 }

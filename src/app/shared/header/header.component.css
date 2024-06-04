@@ -1,6 +1,6 @@
 
 .Header {
-
+  background-color: black;
   position: fixed;
   width: 100%;
   top: 0;
@@ -8,9 +8,15 @@
 }
 .sidebar{
   margin-top: 70px;
+  background-color: black;
 }
 .logo{
   border-radius: 60%;
   width: 80%;
 
+}
+.sidebar ul li {
+
+  margin-top: 50px;
+  padding-bottom: 60px;
 }

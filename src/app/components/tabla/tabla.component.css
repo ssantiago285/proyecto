@@ -28,3 +28,20 @@
   display: flex;
   justify-content: space-between;
 }
+.color-titulos {
+  background-color: hsl(256, 90%, 45%);
+}
+.color-tabla{
+  background-color: #ffffff;
+}
+.color-botones{
+  background-color: #ffffff;
+}
+.table-container {
+  background-color: rgba(255, 255, 255, 0);
+border-color: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+
+
+
+}
