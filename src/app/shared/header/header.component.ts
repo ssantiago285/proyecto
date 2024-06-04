@@ -14,6 +14,7 @@ import { NgClass, NgIf } from '@angular/common';
 export class HeaderComponent implements OnInit {
   menuItems: MenuInfoInterface[] = [];
   hover: boolean;
+loginForm: any;
 
   constructor() {
     this.hover = false;

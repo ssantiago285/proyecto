@@ -1,0 +1,26 @@
+
+<div class="form-container">
+  <h2 class="text-center">Crear Lead</h2>
+  <form [formGroup]="leadsForm" (ngSubmit)="crearLead()">
+    <div class="mb-3">
+      <label class="form-label">Cliente</label>
+      <input type="text" class="form-control" formControlName="cliente" placeholder="Ingrese el nombre del cliente" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descripcion</label>
+      <input type="text" class="form-control" formControlName="descripcion" placeholder="Ingrese la descripcion del cliente" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label inline-flex items-center">
+        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" formControlName="estado">
+        <span class="ml-2">Estado</span>
+      </label>
+    </div>
+
+    <div class="button-container">
+    <button type="submit" class="size text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Crear Lead</button>
+ </div> </form>
+</div>
+
+

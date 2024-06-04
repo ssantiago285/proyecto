@@ -6,6 +6,7 @@ import { LoginInterface } from '../../core/interface/login.interface';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { PATH } from '../../core/enum/path.enum';
+import { crearLeadsInterface } from '../../core/interface/leads.interface';
 
 
 const base_url = environment.base_url;
@@ -13,6 +14,7 @@ const base_url = environment.base_url;
   providedIn: 'root',
 })
 export class LeadsService {
+
   private router = inject(Router);
 
   lead!: LeadModel;
@@ -44,7 +46,6 @@ export class LeadsService {
             cliente,
             descripcion,
             estado,
-            createdAt
           );
           localStorage.setItem('token', resp.token);
           return true;
@@ -77,13 +78,13 @@ export class LeadsService {
     return this.httpClient.get(`${base_url}/lead/${id}`, this.headers);
   }
 
-  // crearUnCliente(usuario: crearclienteInterface) {
-  //   return this.httpClient.post(`${base_url}/cliente`, usuario, this.headers);
-  // }
+  crearUnLead(lead: crearLeadsInterface) {
+    return this.httpClient.post(`${base_url}/lead`, lead, this.headers);
+  }
 
-  actualizarUsuario(usuario: LeadModel) {
+  actualizarLead(lead: LeadModel) {
     return this.httpClient.put(
-      `${base_url}/lead/${this.lead._id}`,
+      `${base_url}/lead/${lead._id}`,
       this.lead,
       this.headers
     );

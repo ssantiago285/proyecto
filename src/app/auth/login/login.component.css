@@ -1,0 +1,12 @@
+.galactic-background {
+  background-image: url('https://img.freepik.com/foto-gratis/fondo-fotorrealista-galaxia_23-2151064387.jpg?w=996&t=st=1717460462~exp=1717461062~hmac=2454de20900a4e76343e2ac8f340d28e760cf6e00b17b1f61937b032f5c794c2'); /* Ruta a tu imagen de fondo de galaxias */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.form-signin {
+  background-color: rgba(255, 255, 255, 0.5); /* Hace que el formulario sea transparente */
+  padding: 20px;
+  border-radius: 10px;
+}

@@ -1,7 +1,52 @@
-img {
-  width: 50%;
-}
-.imagen-inicio {
+body {
+  background-color: #1a1a1a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.content {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+  margin: 20px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.highlight {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ae00ff;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+a strong {
+  font-size: 1.5rem;
+  color: #ede6f0;
+
+
+}
+.login{
+   background-color: #ae00ff;
+  border-radius: 10px;
+  margin-top: 2%;
+  padding: 5px;
+
 }

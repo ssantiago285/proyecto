@@ -1,56 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crear Usuario</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f8f9fa;
-      font-family: 'Arial', sans-serif;
-    }
-    .form-container {
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 600px;
-      max-width: 100%;
-    }
-    .form-container h2 {
-      margin-bottom: 20px;
-      font-weight: bold;
-      font-size: 24px;
-      color: #007bff;
-    }
-    .form-container .form-label {
-      font-weight: 500;
-      color: #495057;
-    }
-    .form-container .form-control, .form-container .form-select {
-      height: 45px;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: 1px solid #ced4da;
-    }
-    .form-container .btn {
-      height: 45px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
+
 
 <div class="form-container">
-  <h2 class="text-center">Crear Usuario</h2>
+  <h1 class="text-center">Crear Usuario</h1>
   <form [formGroup]="usuariosForm" (ngSubmit)="crearUsuario()">
     <div class="mb-3">
       <label class="form-label">Nombre</label>
@@ -103,14 +54,9 @@
       <label class="form-label">password</label>
       <input type="text" class="form-control" formControlName="password" />
     </div>
-
-    <button type="submit" class="btn btn-primary btn-block">Crear Usuario</button>
+    <div class="button-container">
+    <button type="submit" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">Crear Usuario</button>
+</div>
   </form>
 </div>
 
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>

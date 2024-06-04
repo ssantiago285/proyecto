@@ -91,7 +91,7 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
             peso,
             fechaNacimiento,
             numeroCelular,
-            password: '' // Password no se debe prellenar por seguridad
+            password: ''
           });
         },
         error: (error: any) => {
@@ -152,6 +152,7 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
       password: usuario.password,
       numeroCelular: usuario.numeroCelular,
     };
+
 
     this.usuariosService.actualizarUsuario(usuarioActualizar).subscribe({
       next: (res: any) => {

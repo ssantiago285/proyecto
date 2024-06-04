@@ -13,4 +13,7 @@ export enum PATH {
   CREAR_USUARIOS = 'crear-usuarios',
   CREAR_INTERACCIONES = 'crear-interacciones',
   ACTUALIZAR_INTERACCIONES='crear-interacciones',
+  CREAR_LEADS = "crear-leads",
+  ACTUALIZAR_LEAD = "crear_leads",
+
 }
