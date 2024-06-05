@@ -20,7 +20,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   usuarios: UsuarioModel[] = [];
   columnas: string[] = [];
   informacion!: UsuarioModel;
-
+  usuariosResolver: any;
   usuarioSubscription!: Subscription;
 
   private usuarioService = inject(UsuariosService);
@@ -28,6 +28,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.cargarUsuarios();
+
   }
 
   ngOnDestroy(): void {
@@ -41,6 +42,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
         this.usuarios = resp.usuarios;
         this.obtenerColumnas(this.usuarios);
       });
+
   }
 
   obtenerColumnas(usuarios: UsuarioModel[]) {

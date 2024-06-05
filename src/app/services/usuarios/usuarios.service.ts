@@ -47,8 +47,6 @@ export class UsuariosService {
             rol,
             createdAt,
             numeroCelular,
-            peso,
-            fechaNacimiento,
             password,
           } = resp.usuario;
 
@@ -61,8 +59,6 @@ export class UsuariosService {
             rol,
             createdAt,
             numeroCelular,
-            peso,
-            fechaNacimiento,
             password
           );
           localStorage.setItem('token', resp.token);

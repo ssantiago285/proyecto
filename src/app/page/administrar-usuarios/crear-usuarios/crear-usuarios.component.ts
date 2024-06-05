@@ -24,6 +24,7 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
   usuariosForm!: FormGroup;
   usuarioSubscription!: Subscription;
   usuarioSeleccionado!: UsuarioModel;
+  usuarios:UsuarioModel[]=[];
 
   private formBuilder = inject(FormBuilder);
   private usuariosService = inject(UsuariosService);
@@ -37,6 +38,13 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
         this.buscarUsuario(id);
       }
     });
+
+    // this.activatedRoute.data.subscribe(({usuarios})=>{
+    //   this.usuarios=usuarios;
+    //   console.log(this.usuarios);
+    // });
+
+
   }
 
   ngOnDestroy(): void {
@@ -52,8 +60,6 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
       tipoDocumento: ['', [Validators.required]],
       numeroDocumento: ['', [Validators.required]],
       rol: ['', [Validators.required]],
-      peso: ['', []],
-      fechaNacimiento: ['', []],
       password: ['', [Validators.required]],
       numeroCelular: ['', [Validators.required]],
     });
@@ -69,8 +75,6 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
             numeroDocumento,
             email,
             rol,
-            peso,
-            fechaNacimiento,
             numeroCelular
           } = res.usuario;
 
@@ -88,8 +92,6 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
             tipoDocumento,
             numeroDocumento,
             rol,
-            peso,
-            fechaNacimiento,
             numeroCelular,
             password: ''
           });
@@ -114,8 +116,6 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
       tipoDocumento: data.tipoDocumento,
       numeroDocumento: data.numeroDocumento,
       rol: data.rol,
-      peso: data.peso,
-      fechaNacimiento: data.fechaNacimiento,
       password: data.password,
       numeroCelular: data.numeroCelular,
     };
@@ -147,8 +147,6 @@ export class CrearUsuariosComponent implements OnInit, OnDestroy {
       tipoDocumento: usuario.tipoDocumento,
       numeroDocumento: usuario.numeroDocumento,
       rol: usuario.rol ? usuario.rol : '',
-      peso: usuario.peso,
-      fechaNacimiento: usuario.fechaNacimiento,
       password: usuario.password,
       numeroCelular: usuario.numeroCelular,
     };

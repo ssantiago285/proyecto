@@ -5,7 +5,5 @@ export interface crearUsuarioInterface {
   numeroDocumento: string;
   rol?: string;
   numeroCelular?: number;
-  peso?: string;
-  fechaNacimiento?: Date;
   password?: string;
 }

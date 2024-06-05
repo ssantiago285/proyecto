@@ -10,6 +10,7 @@ import { CrearclientesComponent } from './page/administrar-clientes/crearcliente
 import { CrearUsuariosComponent } from './page/administrar-usuarios/crear-usuarios/crear-usuarios.component';
 import { CrearInteraccionesComponent } from './page/administrar-interacciones/crearinteracciones/crear-interacciones.component';
 import { CrearLeadsComponent } from './page/administrar-leads/crear-leads/crear-leads.component';
+import { usuariosResolver } from './core/resolvers/usuarios/usuarios.resolver';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,8 @@ export const routes: Routes = [
         path: PATH.USUARIO,
         title: 'Usuarios',
         component: UsuariosComponent,
+
+
       },
       {
         path: PATH.LEADS,
@@ -60,6 +63,10 @@ export const routes: Routes = [
         path: `${PATH.CREAR_USUARIOS}/:id`,
         title: 'Crear Usuarios',
         component: CrearUsuariosComponent,
+        resolve: {
+          usuarios: usuariosResolver,
+        },
+
       },
       {
         path: `${PATH.CREAR_INTERACCIONES}`,

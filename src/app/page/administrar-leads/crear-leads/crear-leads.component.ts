@@ -90,6 +90,7 @@ leadsForm!: FormGroup;
   crearLead() {
     if (!this.leadsForm.valid) {
       Swal.fire('Crear lead', 'Por favor complete el formulario', 'info');
+
       return;
     }
 
@@ -100,6 +101,7 @@ leadsForm!: FormGroup;
       estado:data.estado,
     };
 
+
     if (this.leadSeleccionado) {
       this.actualizarLead(leadNuevo);
 
@@ -107,6 +109,7 @@ leadsForm!: FormGroup;
     } else {
       this.leadsService.crearUnLead(leadNuevo).subscribe({
         next: (res: any) => {
+
           Swal.fire(
              'lead',
             `El lead  del cliente ${data.cliente} ha sido creada con éxito`,
