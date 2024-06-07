@@ -22,6 +22,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   informacion!: UsuarioModel;
   usuariosResolver: any;
   usuarioSubscription!: Subscription;
+  cargando:boolean=true;
 
   private usuarioService = inject(UsuariosService);
   private router = inject(Router);
@@ -40,6 +41,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       .getUsuarios()
       .subscribe((resp: any) => {
         this.usuarios = resp.usuarios;
+        this.cargando=false;
         this.obtenerColumnas(this.usuarios);
       });
 
